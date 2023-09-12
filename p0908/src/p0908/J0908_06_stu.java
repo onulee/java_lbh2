@@ -2,7 +2,7 @@ package p0908;
 
 import java.util.Scanner;
 
-public class J0908_06 {
+public class J0908_06_stu {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);

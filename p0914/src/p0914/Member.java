@@ -11,7 +11,6 @@ public class Member {
 		this.phone = phone;
 	}
 
-
 	private String id;
 	private String pw;
 	private String name;

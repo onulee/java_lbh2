@@ -199,6 +199,49 @@ public class StuAction {
 		}//while
     	
     }//stuDelete
+    
+    //학생성적 검색 메소드
+    void stuSearch() {
+    	while(true) {
+	    	System.out.println();
+			System.out.println("[ 학생성적 검색 ]");
+			System.out.printf("찾고자 하는 학생 이름을 입력하세요.(0.이전페이지 이동)\n");
+			String name = scan.next();
+			if(name.equals("0")) { //이전페이지 이동
+				System.out.println(">> 이전페이지로 이동합니다!!");
+				System.out.println();
+				break;
+			}//if
+			
+			int count = -1; //0,1,2......
+			for(int i=0;i<list.size();i++) {
+				StuScore s = (StuScore) list.get(i);
+				if(name.equals(s.getName())) {
+					count = i; //찾은 방 번호
+					System.out.printf("%s 학생을 찾았습니다.\n",name);
+					System.out.println();
+					System.out.printf("[ %s 학생성적 출력 ]\n",name);
+					System.out.println("-------------------------------------------------------------");
+					for(int j=0;j<title.length;j++) {
+						System.out.printf("%s\t",title[j]);
+					}
+					System.out.println();
+					System.out.println("-------------------------------------------------------------");
+						System.out.printf("%d\t%s\t%d\t%d\t%d\t%d\t%.2f\t%d\n",
+								s.getStuNo(),s.getName(),s.getKor(),s.getEng(),
+								s.getMath(),s.getTotal(),s.getAvg(),s.getRank());
+					System.out.println("-------------------------------------------------------------");
+					System.out.println();
+					break; //break for
+				}//if
+			}//for
+			if(count==-1) {
+				System.out.printf("※※ 찾고자 하는 %s 학생이 없습니다. ※※ 다시 입력하세요 !! \n",name);
+				System.out.println();
+			}//if
+	    	
+	    }//while
+    }//stuSearch
 	
 	
 	

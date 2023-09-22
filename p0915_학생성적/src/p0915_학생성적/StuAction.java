@@ -1,12 +1,17 @@
 package p0915_학생성적;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
+
+import org.xml.sax.ext.Attributes2;
 
 public class StuAction {
 
 	Scanner scan = new Scanner(System.in);
-	ArrayList list = new ArrayList(); //전체학생성적저장
+	ArrayList<StuScore> list = new ArrayList(); //전체학생성적저장
 	String[] title = {"번호","이름","국어","영어","수학","합계","평균","등수"};
 	
 	//메인화면 출력부분
@@ -242,6 +247,26 @@ public class StuAction {
 	    	
 	    }//while
     }//stuSearch
+    
+    
+    void stuNameSort() {
+    	Collections.sort(list,new Comparator<StuScore>() {
+
+			@Override
+			public int compare(StuScore s1, StuScore s2) {
+				return s1.getName().compareTo(s2.getName());
+			}
+    	});
+    }
+    void stuTotalSort() {
+    	Collections.sort(list,new Comparator<StuScore>() {
+    		
+    		@Override
+    		public int compare(StuScore s1, StuScore s2) {
+    			return s1.getTotal() - s2.getTotal();
+    		}
+    	});
+    }
 	
 	
 	
